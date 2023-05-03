@@ -25,6 +25,7 @@ async function handleFormSubmit(event) {
   event.preventDefault();
 
   const searchQuery = input.value.trim();
+  currentPage = 1;
 
   if (!searchQuery) {
     Notiflix.Notify.failure('Enter the query in the search!');
@@ -50,6 +51,7 @@ async function handleLoadMore(event) {
 async function createGallery(query) {
   try {
     const data = await getImage(query, currentPage);
+    gallery.innerHTML = '';
     gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
 
     lightbox.refresh();
