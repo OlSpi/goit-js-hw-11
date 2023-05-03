@@ -27,9 +27,7 @@ async function handleFormSubmit(event) {
   const searchQuery = input.value.trim();
 
   if (!searchQuery) {
-    Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
+    Notiflix.Notify.failure('Enter the query in the search!');
     gallery.innerHTML = '';
     loadMoreBtn.style.display = 'none';
 
