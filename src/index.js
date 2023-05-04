@@ -34,6 +34,8 @@ async function handleFormSubmit(event) {
 
     return;
   }
+
+  gallery.innerHTML = '';
   createGallery(searchQuery);
 }
 
@@ -51,9 +53,7 @@ async function handleLoadMore(event) {
 async function createGallery(query) {
   try {
     const data = await getImage(query, currentPage);
-    gallery.innerHTML = '';
     gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
-
     lightbox.refresh();
 
     if (data.totalHits > currentPage * perPage) {
