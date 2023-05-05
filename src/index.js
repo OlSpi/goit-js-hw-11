@@ -46,6 +46,7 @@ async function handleLoadMore(event) {
 
   event.preventDefault();
   const searchQuery = input.value.trim();
+  gallery.innerHTML = '';
 
   createGallery(searchQuery);
 }
@@ -61,7 +62,7 @@ async function createGallery(query) {
     } else {
       loadMoreBtn.style.display = 'none';
       Notiflix.Notify.failure(
-        'Sorry, there are no images matching your search query. Please try again.'
+        " We're sorry, but you've reached the end of search results."
       );
     }
   } catch (error) {
