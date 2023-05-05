@@ -46,7 +46,6 @@ async function handleLoadMore(event) {
 
   event.preventDefault();
   const searchQuery = input.value.trim();
-  gallery.innerHTML = '';
 
   createGallery(searchQuery);
 }
